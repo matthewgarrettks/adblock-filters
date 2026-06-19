@@ -1,0 +1,35 @@
+! Main paywall bootstrap (loaded at end of premium articles)
+||account.ljworld.com/on/ljw/api/scripts/syncwall$script,domain=ljworld.com|www2.ljworld.com
+! Paywall overlay stylesheet
+||account.ljworld.com/on/ljw/api/scripts/syncwallstyle$stylesheet,domain=ljworld.com|www2.ljworld.com
+! Syncronex SDKs (paymeter, overlay, login)
+||cdn.syncronex.com^$third-party,domain=ljworld.com|www2.ljworld.com
+! Paymeter tracking / subscriber status API
+||account.ljworld.com/appservices/$xmlhttprequest,domain=ljworld.com|www2.ljworld.com
+! Anonymous user ID iframe (used for metering)
+||account.ljworld.com/portal/anonymoususeridframe.html$subframe,domain=ljworld.com|www2.ljworld.com
+! Treg login iframe (triggered when wall fires)
+||account.ljworld.com/portal/tregframelogin.html$subframe,domain=ljworld.com|www2.ljworld.com
+! Admiral adblock/engagement detection (can affect paywall behavior)
+||quizzicalzephyr.com^$third-party,domain=ljworld.com|www2.ljworld.com
+! ===== Cosmetic: hide overlay if any script slips through =====
+www2.ljworld.com##.syncronex-wall-overlay
+www2.ljworld.com##.syncronex-wall-overlay-container
+www2.ljworld.com##.syncronex-wall-overlay-content
+www2.ljworld.com##.syncronex-wall-overlay-contentOrig
+www2.ljworld.com##.syncronex-warning-overlay
+www2.ljworld.com##.syncronex-warning-overlay-container
+www2.ljworld.com##.syncronex-warning-overlay-content
+www2.ljworld.com##.syncronex-inline-overlay-content
+www2.ljworld.com###sync-inline-overlay
+www2.ljworld.com##.sync-boxClose
+www2.ljworld.com##.sync-overlay-login-error
+www2.ljworld.com###sync-logging-indicator
+! Prevent scroll-lock if overlay JS runs anyway
+www2.ljworld.com##html:style(overflow: auto !important;)
+www2.ljworld.com##body:style(overflow: auto !important;)
+! ===== Optional: broader Ogden Newspapers network =====
+! Uncomment if you read other Ogden papers using Syncronex
+! ||account.*.com/on/*/api/scripts/syncwall$script,3p
+! ||cdn.syncronex.com^$third-party
+! ||quizzicalzephyr.com^$third-party
